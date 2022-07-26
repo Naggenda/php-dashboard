@@ -1,6 +1,7 @@
 <?php
 include '../include/header2.php';
 include '../include/navbar2.php';
+include 'connect.php';
 ?>
 
        
@@ -11,26 +12,38 @@ include '../include/navbar2.php';
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Users</h1>
                     </div>
+
+                    
                     
                     <div>
                         <table border="1" style="width: 90%">
                             <tr>
+                                <th># id</th>
                                 <th>Full Name</th>
                                 <th>Email Adress</th>
+                                <th>Password</th>
                                 <th>Contact</th>
+
                                 <th colspan="2">Modify Buttons</th>
                             </tr>
-                            <tr id="demo">
-                                <td>Naggenda Joshua</td>
-                                <td>naggendajoshua@gmail.com</td>
-                                <td>0707695438</td>
-                                <td>
-                                    <button style="border: none; text-align: center">Edit</button>
-                                </td>
-                                <td>
-                                    <button class="modify-btn" onclick="myfunction()">Remove</button>
-                                </td>
-                            </tr>
+                            <?php
+                            $sql = "SELECT * FROM user";
+                            $result = $conn-> query($sql);
+
+                            if($result-> num_rows > 0){
+                                while ($row = $result-> fetch_assoc()){
+                                    echo "<tr><td>". $row["id"] ."</td><td>". $row['fname'] ."</td><td>". $row['email'] ."</td><td>". $row['lpassword'] ."</td><td>". $row['tnumber'] ."</td></td>";
+                                }
+                                echo "</table>";
+                            }
+                            else{
+                                echo "0 result";
+                            }
+                            ?>
+                            
+                                
+                            
+                            
                         </table>
                     </div>
 

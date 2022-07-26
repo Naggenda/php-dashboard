@@ -1,6 +1,7 @@
 <?php
 include '../include/header2.php';
 include '../include/navbar2.php';
+include 'connect.php';
 ?>
 
         
@@ -10,7 +11,7 @@ include '../include/navbar2.php';
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">New User</h1>
 
-                    <form action="" method="POST">
+                    <form action="insert.php" method="POST">
                         <div class="form-group">
                           <label for="">Full Name</label>
                           <input type="text" name="name" id="name" class="form-control" placeholder="full name" aria-describedby="">
@@ -21,11 +22,11 @@ include '../include/navbar2.php';
                         </div>
                         <div class="form-group">
                           <label for="">Password</label>
-                          <input type="password" name="password" id="password" class="form-control" placeholder="full name" aria-describedby="">
+                          <input type="password" name="password" id="password" class="form-control" placeholder="default password" aria-describedby="">
                         </div>
                         <div class="form-group">
                           <label for="">Contact</label>
-                          <input type="number" name="number" id="number" class="form-control" placeholder="full name" aria-describedby="">
+                          <input type="number" name="number" id="number" class="form-control" placeholder="tel number" aria-describedby="">
                         </div>
                           <button type="submit" class="btn btn-primary" onclick="click()">Add</button>
                     </form>
